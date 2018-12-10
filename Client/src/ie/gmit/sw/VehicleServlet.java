@@ -3,6 +3,7 @@ package ie.gmit.sw;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.reflect.Type;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +16,7 @@ import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 
 import com.google.gson.reflect.TypeToken;
-import java.lang.reflect.Type;
+//import java.lang.reflect.Type;
 import com.sun.jersey.api.client.WebResource;
 
 @WebServlet("/Vehicles")
@@ -64,39 +65,28 @@ public class VehicleServlet extends HttpServlet {
 			update(request, response);
 
 		}
-
+			
+		doGet(request, response);
 	}// post
 
-	protected void del(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		// Create a client
+	private void del(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Create a client
 		Client client = Client.create();
-
-		// Request a connection to the Jax rs service
-		WebResource wr = client.resource("http://localhost:8080/WebService/webapi/vehiclelist/delete");
-
-		// Get a response from the service
-		// ClientResponse r = wr.accept("text/html").get(ClientResponse.class);
-		String r = wr.accept(MediaType.APPLICATION_JSON).get(String.class);
-		Gson gson = new Gson();
-
-		Type listType = new TypeToken<ArrayList<Vehicle>>() {
-		}.getType();
-
-		List<Vehicle> vehicles = gson.fromJson(r, listType);
-		// get the status of the response - if status = 200 we are connected and
-		// response should return
-		request.setAttribute("vehicles", vehicles);
-		request.getRequestDispatcher("/WEB-INF/Vehicles.jsp").forward(request, response);
-
-	}// del
-
-	private static void update(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		request.getRequestDispatcher("/WEB-INF/Vehicles.jsp").forward(request, response);
-
-	}// update
+		
+		//Request a connection to the Jax rs service
+		client.resource("http://localhost:8080/WebService/webapi/vehiclelist/delete").delete();
+        
+	}
+	
+	private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Create a client
+		Client client = Client.create();
+		
+		//Request a connection to the Jax rs service
+		client.resource("http://localhost:8080/WebService/webapi/vehiclelist/update").put();
+        
+		
+	}
 	
 	
 }
