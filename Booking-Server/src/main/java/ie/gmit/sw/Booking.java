@@ -35,4 +35,4 @@ public class Booking implements Serializable {
 		this.customer = customer;
 	}
 
-}
+}//Booking Class

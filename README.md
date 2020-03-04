@@ -16,8 +16,7 @@ To run the project open a command window and cd to your desired workspace i.e. d
 2. Right click on Database-Service and choose run as java application after a second or two you will be prompted to choose RMISetup.java with the package ie.gmit.sw and then click ok. This will create and populate the H2 database to use.
 3. Right click on the Client folder and choose run on server.
 
-A webpage will then open in eclipse with a number of buttons i.e. make a booking, show bookings. Choose an option and it will open another webpage that will display the information. The program creates the database and can print the data to screen but the user is unable to manipulate the data. This project is incomplete as I was unable to meet the criteria for the Create/Modify/Update/Delete functionality.
-
+A webpage will then open in eclipse with a number of buttons i.e. make a booking, show bookings. Choose an option and it will open another webpage that will display the information. The program creates the database and can print the data to screen and allow the user to manipulate the data.
 ### Rest examples
 [Rest Example 1](https://www.journaldev.com/9170/restful-web-services-tutorial-java)
 

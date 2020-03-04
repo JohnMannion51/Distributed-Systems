@@ -54,4 +54,4 @@ public class Vehicle implements Serializable {
 		this.booked = booked;
 	}
 
-}
+}//Vehicle class
